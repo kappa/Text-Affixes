@@ -20,7 +20,7 @@ our @EXPORT = qw(
 	get_sufixes
 );
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 sub get_prefixes {
 	my %conf = (min => 3, max => 3);
@@ -103,9 +103,15 @@ Sufixe examination of text.
 
 =head1 TO DO
 
-* Improve the documentation
+=over 6
 
-* Make it more efficient (C?)
+=item * Improve the documentation
+
+=item * Make it more efficient (use C for that)
+
+=item * Add object interface
+
+=back
 
 =head1 AUTHOR
 

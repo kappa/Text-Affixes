@@ -1,4 +1,4 @@
-Text-Affixes version 0.02
+Text-Affixes version 0.03
 ==========================
 
 Text::Affixes - Basis for Prefixes and Sufixes analisys of text
@@ -45,9 +45,15 @@ Sufixe examination of text.
 
 =head1 TO DO
 
-* Improve the documentation
+=over 6
 
-* Make it more efficient (C?)
+=item * Improve the documentation
+
+=item * Make it more efficient (use C for that)
+
+=item * Add object interface
+
+=back
 
 =head1 AUTHOR
 
@@ -60,3 +66,5 @@ Copyright (C) 2004 by Jose Castro
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself, either Perl version 5.8.3 or,
 at your option, any later version of Perl 5 you may have available.
+
+=cut

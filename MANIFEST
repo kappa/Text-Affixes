@@ -3,5 +3,6 @@ Changes
 Makefile.PL
 MANIFEST
 README
-t/1.t
+t/01-prefixes.t
+t/02-sufixes.t
 META.yml                                 Module meta-data (added by MakeMaker)

@@ -1,5 +1,9 @@
 Revision history for Perl extension Text::Affixes.
 
+0.03  Tue Oct 26 00:00:10 2004
+	- minor changes in the documentation
+	- added tests
+
 0.02  Sat Oct 23 17:04:20 2004
 	- added README
 
