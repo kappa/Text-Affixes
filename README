@@ -1,4 +1,4 @@
-Text-Affixes version 0.05
+Text-Affixes version 0.06
 ==========================
 
 Text::Affixes - Basis for prefixes and suffixes analisys of text
@@ -39,9 +39,7 @@ Text::Affixes - Basis for prefixes and suffixes analisys of text
 
 =head1 DESCRIPTION
 
-This module, still in its early stages, is meant to be used
-in Natural Language Processing tools that require Prefixe or
-Suffix examination of text.
+Provides methods for prefixe and suffix analisys of text.
 
 =head1 METHODS
 
@@ -96,6 +94,44 @@ prefix is the $1 of /\w(\w+)\b/).
 
   # extracting suffixes of sizes 2, 3 and 4
   $suffixes = get_suffixes( {min => 2, max=> 4}, $text);
+
+=head1 OPTIONS
+
+Apart from deciding on a minimum and maximum size for prefixes or suffixes, you
+can also decide on some configuration options.
+
+=head2 exclude_numbers
+
+Set to 0 if you consider numbers as part of words. Default value is 1.
+
+  # this
+  get_suffixes( {min => 1, max => 1, exclude_numbers => 0}, "Hello, but w8" );
+
+  # returns this:
+    {
+      1 => {
+             'o' => 1,
+             't' => 1,
+             '8' => 1
+           }
+    }
+
+=head2 lowercase
+
+Set to 1 to extract all prefixes in lowercase mode. Default value is 0.
+
+ATTENTION: This does not mean that prefixes with uppercased characters won't be
+extracted. It means they will be extracted after being lowercased.
+
+  # this...
+  get_prefixes( {min => 2, max => 2, lowercase => 1}, "Hello, hello");
+
+  # returns this:
+    {
+      2 => {
+             'he' => 2
+           }
+    }
 
 =head1 TO DO
 

@@ -1,5 +1,11 @@
 Revision history for Perl extension Text::Affixes.
 
+0.06  Fri Nov 05 00:17:14 2004
+	- added parameter "exclude_numbers" to the configuration
+	- added parameter "lowercase" to the configuration
+	- code for extracting prefixes and suffixes now resides in the same
+	  private function
+
 0.05  Mon Nov 01 15:18:00 2004
 	- Perl required version is now 5.006
 	- changes in the documentation

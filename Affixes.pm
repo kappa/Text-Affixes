@@ -20,7 +20,7 @@ our @EXPORT = qw(
 	get_suffixes
 );
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 =head1 NAME
 
@@ -62,9 +62,7 @@ Text::Affixes - Basis for prefixes and suffixes analisys of text
 
 =head1 DESCRIPTION
 
-This module, still in its early stages, is meant to be used
-in Natural Language Processing tools that require Prefixe or
-Suffix examination of text.
+Provides methods for prefixe and suffix analisys of text.
 
 =head1 METHODS
 
@@ -100,20 +98,7 @@ of /\b(\w+)\w/).
 =cut
 
 sub get_prefixes {
-	my %conf = (min => 3, max => 3);
-	if (ref $_[0] eq 'HASH') {
-		%conf = (%conf, %{+shift});
-	}
-	return {} if $conf{max} < $conf{min};
-	my %elements;
-	my $text = shift || return undef;
-	$conf{min} = 1 if $conf{min} < 1;
-	for ($conf{min} .. $conf{max}) {
-	while ($text =~ /\b(\w{$_})\w/g) {
-			$elements{$_}{$1}++;
-		}
-	}
-	return \%elements;
+	return _get_elements(1,@_);
 }
 
 =head2 get_suffixes
@@ -139,23 +124,107 @@ prefix is the $1 of /\w(\w+)\b/).
   # extracting suffixes of sizes 2, 3 and 4
   $suffixes = get_suffixes( {min => 2, max=> 4}, $text);
 
-
 =cut
 
 sub get_suffixes {
-	my %conf = (min => 3, max => 3);
+	return _get_elements(0,@_);
+}
+
+sub _get_elements {
+	my $task = shift;
+
+=head1 OPTIONS
+
+Apart from deciding on a minimum and maximum size for prefixes or suffixes, you
+can also decide on some configuration options.
+
+=cut
+
+	# configuration
+	my %conf = (	min => 3,
+			max => 3,
+			exclude_numbers => 1,
+			lowercase => 0,
+		);
 	if (ref $_[0] eq 'HASH') {
 		%conf = (%conf, %{+shift});
 	}
 	return {} if $conf{max} < $conf{min};
+
+	# get the elements
 	my %elements;
 	my $text = shift || return undef;
 	$conf{min} = 1 if $conf{min} < 1;
 	for ($conf{min} .. $conf{max}) {
-	while ($text =~ /\w(\w{$_})\b/g) {
+
+		my $regex = $task ? qr/\b(\w{$_})\w/ :	# prefixes
+                                    qr/\w(\w{$_})\b/ ;	# suffixes
+
+		while ($text =~ /$regex/g) {
 			$elements{$_}{$1}++;
 		}
+
 	}
+
+=head2 exclude_numbers
+
+Set to 0 if you consider numbers as part of words. Default value is 1.
+
+  # this
+  get_suffixes( {min => 1, max => 1, exclude_numbers => 0}, "Hello, but w8" );
+
+  # returns this:
+    {
+      1 => {
+             'o' => 1,
+             't' => 1,
+             '8' => 1
+           }
+    }
+
+=cut
+
+	# exclude elements containing numbers
+	if ($conf{exclude_numbers}) {
+		for my $s (keys %elements) {
+			for (keys %{$elements{$s}}) {
+				delete ${$elements{$s}}{$_} if /\d/;
+			}
+		}
+	}
+
+=head2 lowercase
+
+Set to 1 to extract all prefixes in lowercase mode. Default value is 0.
+
+ATTENTION: This does not mean that prefixes with uppercased characters won't be
+extracted. It means they will be extracted after being lowercased.
+
+  # this...
+  get_prefixes( {min => 2, max => 2, lowercase => 1}, "Hello, hello");
+
+  # returns this:
+    {
+      2 => {
+             'he' => 2
+           }
+    }
+
+=cut
+
+	# elements containing uppercased characters become lowercased ones
+	if ($conf{lowercase}) {
+		for my $s (keys %elements) {
+			for (keys %{$elements{$s}}) {
+				if (/[A-Z]/) {
+					${$elements{$s}}{lc $_} +=
+						${$elements{$s}}{$_};
+					delete ${$elements{$s}}{$_};
+				}
+			}
+		}
+	}
+
 	return \%elements;
 }
 
