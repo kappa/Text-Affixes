@@ -20,7 +20,7 @@ our @EXPORT = qw(
 	get_sufixes
 );
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 sub get_prefixes {
 	my %conf = (min => 3, max => 3);

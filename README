@@ -1,38 +1,62 @@
-Text/Affixes version 0.01
-=========================
+Text-Affixes version 0.02
+==========================
 
-The README is used to introduce the module and provide instructions on
-how to install the module, any machine dependencies it may have (for
-example C compilers and installed libraries) and any other information
-that should be provided before the module is installed.
+Text::Affixes - Basis for Prefixes and Sufixes analisys of text
 
-A README file is required for CPAN modules since CPAN extracts the
-README file from a module distribution so that people browsing the
-archive can use it get an idea of the modules uses. It is usually a
-good idea to provide version information here so that people can
-decide whether fixes for the module are worth downloading.
+=head1 SYNOPSIS
 
-INSTALLATION
+  use Text::Affixes;
+  my $text = "Hello, world. Hello, big world.";
+  my $prefixes = get_prefixes($text);
 
-To install this module type the following:
+  # $prefixes now holds
+  # {
+  # 	3 => {
+  # 		'Hel' => 2,
+  # 		'wor' => 2,
+  # 	}
+  # }
 
-   perl Makefile.PL
-   make
-   make test
-   make install
+  # or
 
-DEPENDENCIES
+  $prefixes = get_prefixes({min => 1, max => 2},$text);
 
-This module requires these other modules and libraries:
+  # $prefixes now holds
+  # {
+  # 	1 => {
+  # 		'H' => 2,
+  # 		'w' => 2,
+  # 		'b' => 1,
+  # 	},
+  # 	2 => {
+  # 		'He' => 2,
+  # 		'wo' => 2,
+  # 		'bi' => 1,
+  # 	}
+  # }
 
-  blah blah blah
+  # the use for get_sufixes is similar
 
-COPYRIGHT AND LICENCE
+=head1 DESCRIPTION
 
-Put the correct copyright and licence information here.
+This module, still in its early stages, is meant to be used
+in Natural Language Processing tools that require Prefixe or
+Sufixe examination of text.
 
-Copyright (C) 2004 José Alves de Castro
+=head1 TO DO
+
+* Improve the documentation
+
+* Make it more efficient (C?)
+
+=head1 AUTHOR
+
+Jose Alves de Castro, E<lt>cog@cpan.orgE<gt>
+
+=head1 COPYRIGHT AND LICENSE
+
+Copyright (C) 2004 by Jose Castro
 
 This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself. 
-
+it under the same terms as Perl itself, either Perl version 5.8.3 or,
+at your option, any later version of Perl 5 you may have available.
