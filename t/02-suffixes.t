@@ -2,10 +2,10 @@ use Test::More tests => 3;
 BEGIN { use_ok('Text::Affixes') };
 
 my $text = "Hello, world. Hello, big world.";
-my $sufixes = get_sufixes($text);
+my $suffixes = get_suffixes($text);
 
-is_deeply( $sufixes ,
-  # $sufixes now holds
+is_deeply( $suffixes ,
+  # $suffixes now holds
   {
       3 => {
               'llo' => 2,
@@ -13,10 +13,10 @@ is_deeply( $sufixes ,
       }
   });
 
-$sufixes = get_sufixes({min => 1, max => 2},$text);
+$suffixes = get_suffixes({min => 1, max => 2},$text);
 
-is_deeply( $sufixes ,
-  # $sufixes now holds
+is_deeply( $suffixes ,
+  # $suffixes now holds
   {
       1 => {
               'o' => 2,

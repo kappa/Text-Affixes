@@ -17,10 +17,10 @@ our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
 our @EXPORT = qw(
 	get_prefixes
-	get_sufixes
+	get_suffixes
 );
 
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 sub get_prefixes {
 	my %conf = (min => 3, max => 3);
@@ -38,7 +38,7 @@ sub get_prefixes {
 	return \%elements;
 }
 
-sub get_sufixes {
+sub get_suffixes {
 	my %conf = (min => 3, max => 3);
 	if (ref $_[0] eq 'HASH') {
 		%conf = (%conf, %{+shift});
@@ -59,7 +59,7 @@ __END__
 
 =head1 NAME
 
-Text::Affixes - Basis for Prefixes and Sufixes analisys of text
+Text::Affixes - Basis for Prefixes and Suffixes analisys of text
 
 =head1 SYNOPSIS
 
@@ -93,13 +93,13 @@ Text::Affixes - Basis for Prefixes and Sufixes analisys of text
   # 	}
   # }
 
-  # the use for get_sufixes is similar
+  # the use for get_suffixes is similar
 
 =head1 DESCRIPTION
 
 This module, still in its early stages, is meant to be used
 in Natural Language Processing tools that require Prefixe or
-Sufixe examination of text.
+Suffix examination of text.
 
 =head1 TO DO
 

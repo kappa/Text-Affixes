@@ -1,5 +1,8 @@
 Revision history for Perl extension Text::Affixes.
 
+0.04  Tue Oct 26 19:20:00 2004
+	- corrected grammar (it's "suffix", not "sufix"; duh!)
+
 0.03  Tue Oct 26 00:00:10 2004
 	- minor changes in the documentation
 	- added tests

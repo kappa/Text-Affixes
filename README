@@ -1,7 +1,7 @@
-Text-Affixes version 0.03
+Text-Affixes version 0.04
 ==========================
 
-Text::Affixes - Basis for Prefixes and Sufixes analisys of text
+Text::Affixes - Basis for Prefixes and Suffixes analisys of text
 
 =head1 SYNOPSIS
 
@@ -35,13 +35,13 @@ Text::Affixes - Basis for Prefixes and Sufixes analisys of text
   # 	}
   # }
 
-  # the use for get_sufixes is similar
+  # the use for get_suffixes is similar
 
 =head1 DESCRIPTION
 
 This module, still in its early stages, is meant to be used
 in Natural Language Processing tools that require Prefixe or
-Sufixe examination of text.
+Suffix examination of text.
 
 =head1 TO DO
 

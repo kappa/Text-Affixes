@@ -4,5 +4,5 @@ Makefile.PL
 MANIFEST
 README
 t/01-prefixes.t
-t/02-sufixes.t
+t/02-suffixes.t
 META.yml                                 Module meta-data (added by MakeMaker)
