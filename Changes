@@ -1,5 +1,12 @@
 Revision history for Perl extension Text::Affixes.
 
+0.05  Mon Nov 01 15:18:00 2004
+	- Perl required version is now 5.006
+	- changes in the documentation
+	- added pod.t and pod-coverage.t to the tests directory
+	- when minimum size is bigger than maximum size, a reference to an
+	  empty hash is automatically returned
+
 0.04  Tue Oct 26 19:20:00 2004
 	- corrected grammar (it's "suffix", not "sufix"; duh!)
 

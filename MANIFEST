@@ -5,4 +5,7 @@ MANIFEST
 README
 t/01-prefixes.t
 t/02-suffixes.t
+t/03-extreme_cases.t
+t/pod.t
+t/pod-coverage.t
 META.yml                                 Module meta-data (added by MakeMaker)
