@@ -20,11 +20,11 @@ our @EXPORT = qw(
 	get_suffixes
 );
 
-our $VERSION = '0.06';
+our $VERSION = '0.07';
 
 =head1 NAME
 
-Text::Affixes - Basis for prefixes and suffixes analisys of text
+Text::Affixes - Prefixes and suffixes analisys of text
 
 =head1 SYNOPSIS
 
@@ -141,10 +141,10 @@ can also decide on some configuration options.
 =cut
 
 	# configuration
-	my %conf = (	min => 3,
-			max => 3,
+	my %conf = (	min             => 3,
+			max             => 3,
 			exclude_numbers => 1,
-			lowercase => 0,
+			lowercase       => 0,
 		);
 	if (ref $_[0] eq 'HASH') {
 		%conf = (%conf, %{+shift});

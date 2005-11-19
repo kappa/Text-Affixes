@@ -1,4 +1,4 @@
-use Test::More tests => 4;
+use Test::More tests => 5;
 BEGIN { use_ok('Text::Affixes') };
 
 my $text = "Hello, world. Hello, big world.";
@@ -24,3 +24,5 @@ $prefixes = get_prefixes({min => 4, max => 3},$text);
 is_deeply( $prefixes ,
   # $prefixes now holds
   { });
+
+is_deeply( get_prefixes(), undef );
