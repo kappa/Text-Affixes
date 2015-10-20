@@ -1,5 +1,10 @@
 Revision history for Text-Affixes
 
+{{$NEXT}}
+    - doc fixes from gsulivan@
+    - convert to Minilla
+    - put on Github with history imported from gitpan
+
 0.08  Mon Oct 19 15:17:00 2015
     - fix some Unicode issues
 

@@ -26,14 +26,10 @@
       ]
    },
    "prereqs" : {
-      "build" : {
-         "requires" : {
-            "ExtUtils::MakeMaker" : "0"
-         }
-      },
       "configure" : {
          "requires" : {
-            "Module::Build" : "0.38"
+            "Module::Build" : "0.38",
+            "perl" : "5.008_001"
          }
       },
       "develop" : {
@@ -49,6 +45,11 @@
          "requires" : {
             "perl" : "5.006"
          }
+      },
+      "test" : {
+         "requires" : {
+            "Test::More" : "0"
+         }
       }
    },
    "release_status" : "unstable",
@@ -63,7 +64,7 @@
          "web" : "https://github.com/kappa/Text-Affixes"
       }
    },
-   "version" : "0.08",
+   "version" : "0.09",
    "x_contributors" : [
       "José Alves de Castro <cog@cpan.org>",
       "Alex Kapranoff <alex@kapranoff.ru>"
