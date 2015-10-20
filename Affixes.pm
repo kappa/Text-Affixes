@@ -20,7 +20,7 @@ our @EXPORT = qw(
 	get_suffixes
 );
 
-our $VERSION = '0.07';
+our $VERSION = '0.08';
 
 =head1 NAME
 
@@ -216,10 +216,9 @@ extracted. It means they will be extracted after being lowercased.
 	if ($conf{lowercase}) {
 		for my $s (keys %elements) {
 			for (keys %{$elements{$s}}) {
-				if (/[A-Z]/) {
+				if (/[[:upper:]]/) {
 					${$elements{$s}}{lc $_} +=
-						${$elements{$s}}{$_};
-					delete ${$elements{$s}}{$_};
+						delete ${$elements{$s}}{$_};
 				}
 			}
 		}
