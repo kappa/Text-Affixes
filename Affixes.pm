@@ -24,7 +24,7 @@ our $VERSION = '0.08';
 
 =head1 NAME
 
-Text::Affixes - Prefixes and suffixes analisys of text
+Text::Affixes - Prefixes and suffixes analysis of text
 
 =head1 SYNOPSIS
 
@@ -62,7 +62,7 @@ Text::Affixes - Prefixes and suffixes analisys of text
 
 =head1 DESCRIPTION
 
-Provides methods for prefixe and suffix analisys of text.
+Provides methods for prefix and suffix analysis of text.
 
 =head1 METHODS
 
@@ -110,7 +110,7 @@ point.
 A suffix is considered to be a sequence of word characters (\w) in
 the end of a word (that is, before a word boundary) that does not start
 at the beginning of the word ("regular expressionly" speaking, a
-prefix is the $1 of /\w(\w+)\b/).
+suffix is the $1 of /\w(\w+)\b/).
 
   # extracting suffixes of size 3
   $suffixes = get_suffixes( $text );
