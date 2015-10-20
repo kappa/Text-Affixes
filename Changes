@@ -1,6 +1,8 @@
 Revision history for Text-Affixes
 
 {{$NEXT}}
+
+0.09 2015-10-20T10:05:00Z
     - doc fixes from gsulivan@
     - convert to Minilla
     - put on Github with history imported from gitpan
